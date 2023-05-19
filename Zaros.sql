@@ -48,3 +48,11 @@ CREATE TABLE [IF NOT EXISTS] produtos_pedidos (
         FOREIGN KEY (pdt_id) REFERENCES produtos (pdt_id)
 )
 
+CREATE TABLE [IF NOT EXISTS] enderecos (
+        user_id int not null,
+        end_logradouro varchar(40) not null,
+        end_num varchar(5) not null,
+        end_tipo varchar(50) not null,
+        end_bairro varchar(30) not null
+        FOREIGN KEY (user_id) REFERENCES usuarios (user_id)
+);
