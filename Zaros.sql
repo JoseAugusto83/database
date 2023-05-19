@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS lojas (
         lj_nome_loja varchar(80) not null,
         lj_desc varchar(80) not null,
         lj_cnpj varchar(14) not null,
-        primary key (user_id),
-        ALTER TABLE lojas ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES usuarios (user_id)
+        primary key (user_id)
 );
 
 CREATE TABLE IF NOT EXISTS pedidos (
@@ -25,8 +24,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
         pdd_qtd int not null,
         pdd_preco decimal(10,2) not null,
         pdd_tamanho varchar(20) not null,
-        primary key (pdd_id),
-        ALTER TABLE pedidos ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES usuarios (user_id)
+        primary key (pdd_id)
 );
 
 CREATE TABLE IF NOT EXISTS produtos (
@@ -36,8 +34,7 @@ CREATE TABLE IF NOT EXISTS produtos (
         pdt_quantidade int not null,
         pdt_nome varchar(80) not null,
         user_id int not null,
-        primary key (pdt_id),
-        ALTER TABLE produtos ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES lojas (user_id)
+        primary key (pdt_id)
 );
 
 CREATE TABLE IF NOT EXISTS produtos_pedidos (
@@ -45,16 +42,12 @@ CREATE TABLE IF NOT EXISTS produtos_pedidos (
         pdt_id int not null,
         pp_qtd_total int not null,
         pp_preco_total decimal(10,2) not null,
-        primary key (pdd_id, pdt_id),
-        ALTER TABLE produtos_pedidos ADD CONSTRAINT FOREIGN KEY (pdd_id) REFERENCES pedidos (pdd_id),
-        ALTER TABLE produtos_pedidos ADD CONSTRAINT FOREIGN KEY (pdt_id) REFERENCES produtos (pdt_id)
-)
+        primary key (pdd_id, pdt_id)
 
 CREATE TABLE IF NOT EXISTS enderecos (
         user_id int not null,
         end_logradouro varchar(40) not null,
         end_num varchar(5) not null,
         end_tipo varchar(50) not null,
-        end_bairro varchar(30) not null,
-         ALTER TABLE enderecos ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES usuarios (user_id)
+        end_bairro varchar(30) not null
 );
