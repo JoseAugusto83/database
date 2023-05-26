@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS usuarios (
         user_id int not null auto_increment,
         user_cpf varchar(14) not null,
-        user_nome varchar(80) not null,
+        user_nome varchar(50) not null,
         user_data_nascimento date not null,
         user_email varchar(80) not null,
         user_senha varchar(30) not null,
@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS lojas (
         user_id int not null,
-        lj_nome_loja varchar(80) not null,
-        lj_desc varchar(80) not null,
+        lj_nome_loja varchar(30) not null,
+        lj_desc varchar(100) not null,
         lj_cnpj varchar(14) not null,
         primary key (user_id)
 );
@@ -43,6 +43,8 @@ CREATE TABLE IF NOT EXISTS produtos_pedidos (
         pp_qtd_total int not null,
         pp_preco_total decimal(10,2) not null,
         primary key (pdd_id, pdt_id)
+
+);
 
 CREATE TABLE IF NOT EXISTS enderecos (
         user_id int not null,
